@@ -71,10 +71,8 @@ Every clone here ships in **two flavors** — a hand-rolled HTML/CSS/JS build an
 <td align="center">
 
 **Spotify**
-
 <img src="./screenshots/spotify-clone.png" width="100%">
-
-[HTML](./html/spotify) &nbsp;•&nbsp; [React](./react/spotify)
+[HTML](./html/spotify/README.md) &nbsp;•&nbsp; [React](./react/spotify/README.md)
 [Preview HTML](#) &nbsp;•&nbsp; [Preview React](#)
 
 </td>

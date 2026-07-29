@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" sizes="32x32" type="image/png" href="assets/images/favicon32.png">
+        <link rel="icon" sizes="16x16" type="image/png" href="assets/images/favicon16.png">
+        <link rel="stylesheet" types="text/css" href="assets/style.css" />
+        <title>Spotify - Web Player: Music for everyone</title>
+    </head>
+    <body>
+        <nav class="navbar flex">
+            <a href="index.html" class="spotify-logo">
+                <img src="assets/images/logo.svg" aria-label="Spotify Logo">
+            </a>
+            <div class="nav-center flex">
+                <button class="home-icon flex" aria-label="home btn" type="button">
+                    <img src="assets/icons/home.svg" aria-label="Home Icon"/>
+                </button>
+                <div class="nav-search flex">
+                    <div class="search-icon flex"><img src="assets/icons/search.svg" aria-label="search"/></div>
+                    <div class="input"><input type="search" class="searchbar" placeholder="What do you want to play?"/></div>
+                    <div class="browse-icon flex"><img src="assets/icons/browse.svg" aria-label="browse" /></div>
+                </div>
+            </div>
+            <div class="right-btn flex">
+                <button type="button" class="explore-premium-btn">Explore Premium</button>
+                <button type="button" class="install-btn flex" style="gap: 2px;"><span><img src="assets/icons/install.svg" /></span><span>Install App</span></button>
+                <button type="button" class="notification-btn flex"><img src="assets/icons/notification.svg" /></button>
+                <button type="button" class="friends-btn flex"><img src="assets/icons/friends.svg" /></button>
+                <button type="button" class="profile-btn flex"><img src="assets/icons/user.svg"/></button>
+            </div>
+        </nav>
+
+        <script src="assets/script.js"></script>
+    </body>
+</html>
