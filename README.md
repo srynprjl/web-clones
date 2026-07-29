@@ -86,35 +86,6 @@ Every clone here ships in **two flavors** — a hand-rolled HTML/CSS/JS build an
 
 ---
 
-<br>
-
-
-<table>
-<tr>
-<td valign="top" width="50%">
-
-**Source**
-- HTML/CSS/JS: [`/html/website-name`](./html/website-name)
-- React: [`/react/website-name`](./react/website-name)
-
-</td>
-<td valign="top" width="50%">
-
-**Live**
-- HTML build: [website-name-html.vercel.app](#)
-- React build: [website-name-react.vercel.app](#)
-
-</td>
-</tr>
-</table>
-
-**Built with:** HTML5, CSS3, JavaScript · React, plus any libraries used (Tailwind, Framer Motion, GSAP, and so on)
-
-**Notes:** anything tricky about the layout, animation, or responsiveness that's worth calling out.
-
-<br>
-
----
 
 <br>
 
