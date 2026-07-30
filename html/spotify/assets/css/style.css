@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 *::-webkit-scrollbar {
   display: none !important;
@@ -13,7 +13,7 @@
 }
 body{
     background-color: #000;
-    font-family: 'Google Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Plus Jakarta Sans','Google Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     height: 100dvh;
     color: white;
     display:grid;
@@ -262,6 +262,7 @@ main{
             gap: 2px;
             .name{
                 font-size: 16px;
+                font-weight: 500;
             }
             .subtitle {
                 font-size: 14px;
@@ -377,8 +378,136 @@ main{
 }
 
 section.mainbody{
-    padding: 16px;
+    padding: 3rem;
     border-radius: 13px;
     background-color: #121212;
     overflow-y: scroll;
+}
+
+
+/*playlist page*/
+.playlist-cover{
+    img{
+        width: 200px;
+    }
+}
+
+.playlist-header{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+
+#playlist-header-items{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .playlist-type{
+        font-size: 16px;
+        color: lightgray;
+    }
+
+    .playlist-name{
+        font-size: 5rem;
+        font-family: 'Changa One';
+    }
+
+    .playlist-info{
+        font-size: 14px;
+    }
+
+    .playlist-author{
+        font-weight: 900;
+    }
+
+    .playlist-songs, .playlist-times{
+        color: lightgray;
+    }
+}
+
+.playlist-controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left{
+        display: flex;
+        gap: 10px;
+    }
+    button.play-btn, button.shuffle-btn, button.download-btn{
+        width: 56px;
+        aspect-ratio: 1;
+        background-color: #1ed760;
+        border-radius: 500px;
+        img{
+            width: 28px;
+        }
+        border: none;
+        outline: none;
+    }
+    button.play-btn:hover{
+        background-color: #1ef860;
+    }
+    button.shuffle-btn:hover, button.download-btn:hover{
+        scale: 1.05;
+    }
+    button.shuffle-btn, button.download-btn{
+        background-color: transparent;
+
+    }
+}
+
+.playlist-songs{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.title-container{
+    display: grid;
+    grid-template-columns: 5% 40% 20% 20% 15%;
+    gap: 1%;
+    padding: 10px;
+    font-weight: 900;
+    font-size: large;
+}
+
+.song-container{
+    display: grid;
+    grid-template-columns: 5% 40% 20% 20% 15%;
+    gap: 1%;
+    padding: 10px;
+    align-items: center;
+}
+
+.song-img{
+    width: 64px;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.song-title{
+    font-size: 16px;
+    font-weight: 500;
+    gap: 8px;
+}
+
+.song-artist{
+    font-size: 12px;
+    font-weight: 300;
+    color: lightgray;
+    cursor: pointer;
+}
+
+.song-artist:hover{
+    text-decoration: underline;
+}
+
+.song-title{
+    align-items: center;
+    gap: 1rem;
+}
+
+.song-container:hover{
+    background-color: #1f1f1f;
 }
