@@ -100,6 +100,19 @@ function updateVolume(e){
 
 volume.addEventListener("input", updateVolume)
 volume.addEventListener("change", updateVolume)
-const songs = []
+
+
+const songs = [
+  
+]
 
 // audio manipulation
+function prevSong(){}
+
+function nextSong(){}
+
+function playPause(){}
+
+function repeat(){}
+
+function shuffle(){}

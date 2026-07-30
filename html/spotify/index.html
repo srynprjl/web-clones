@@ -5,21 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
         <link rel="icon" sizes="32x32" type="image/png" href="assets/images/favicon32.png">
         <link rel="icon" sizes="16x16" type="image/png" href="assets/images/favicon16.png">
-        <link rel="stylesheet" types="text/css" href="assets/style.css" />
+        <link rel="stylesheet" types="text/css" href="assets/style.css">
         <title>Spotify - Web Player: Music for everyone</title>
+
     </head>
-    <body class="" style="">
+    <body>
         <nav class="navbar flex">
             <a href="index.html" class="spotify-logo">
                 <img src="assets/images/logo.svg" aria-label="Spotify Logo">
             </a>
             <div class="nav-center flex">
                 <button class="home-icon flex" aria-label="home btn" type="button">
-                    <img src="assets/icons/home.svg" aria-label="Home Icon"/>
+                    <img src="assets/icons/home.svg" aria-label="Home Icon" />
                 </button>
                 <div class="nav-search flex">
                     <div class="search-icon flex"><img src="assets/icons/search.svg" aria-label="search"/></div>
-                    <div class="input"><input type="search" class="searchbar" placeholder="What do you want to play?"/></div>
+                    <div class="input  top-search"><input type="search" class="searchbar top-search" placeholder="What do you want to play?"/></div>
                     <div class="browse-icon flex"><img src="assets/icons/browse.svg" aria-label="browse" /></div>
                 </div>
             </div>
@@ -35,15 +36,21 @@
         <main>
             <!--Sidebar-->
             <aside class="sidebar flex" id="playlist-bar">
-                <div class="flex" style="flex-direction: column; width: 100%; gap: 8px;">
+                <div class="flex" style="flex-direction: column; gap: 8px;">
                     <div class="flex title"><span>Your Library</span><img src="assets/icons/plus.svg" /></div>
-                    <div class="btn flex" style="width: 100%;">
+                    <div class="btn flex">
                         <button type="button">Playlist</button>
                         <button type="button">Artist</button>
                     </div>
                     <div class="filters">
-                        <button class="searchbar"><img src="assets/icons/search.svg" id="sb_search"/><input type="search" id="sb_input" hidden></button>
-                        <div class="recent">Recents <img src="assets/icons/list.svg" /></div>
+                        <button class="searchbar">
+                            <img src="assets/icons/search.svg" id="sb_search"/>
+                            <input type="search" id="sb_input" hidden>
+                        </button>
+                        <div class="recent">
+                            <span>Recents</span> 
+                            <img src="assets/icons/list.svg" />
+                        </div>
                     </div>
                     <div id="playlist_ctn">
 
@@ -60,7 +67,7 @@
                     <div class="artist">Artist</div>
                 </div>
                 <img class="icon" src="assets/icons/plus-circle.svg" />
-                
+
             </div>
             <div class="play">
                 <div class="play_controls">

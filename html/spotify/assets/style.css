@@ -91,13 +91,16 @@ input[type="search"]::-ms-reveal {
     border: none;
     outline: none;
     height: 3rem;
-    width: 22rem;
+    width: 13rem;
     padding-inline: 4px;
     font-size: 1.05rem;
     background-color: transparent;
     color: white;
 }
 
+.top-search{
+    width: 22rem;
+}
 
 
 .explore-premium-btn, .install-btn{
@@ -177,6 +180,7 @@ main{
         .btn{
             display: flex;
             gap: 5px;
+            width: 100%;
             button{
                 border: none;
                 border-radius: 500px;
@@ -191,11 +195,9 @@ main{
             display: flex;
             align-items: center;
             width: 100%;
-            justify-content: space-between;
+            justify-content: space-evenly;
             button{
-
                 display: flex;
-
                 align-items: center;
                 img{
                     width: 16px;
@@ -303,6 +305,9 @@ main{
             width: 20px;
         }
 
+    }
+    .play_controls img:hover{
+        scale: 1.1;
     }
 
 .play-range, .volume {
