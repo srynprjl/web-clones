@@ -1,6 +1,3 @@
-
-
-
 const sidebarSearchBtn = document.getElementById("sb_search");
 const sidebarInputField = document.getElementById("sb_input");
 
@@ -89,11 +86,11 @@ function updateVolume(e){
   if(e.target.value == 0){
     volIcon.setAttribute("src", "assets/icons/volume-x.svg")
   } else if (e.target.value > 0 && e.target.value <= 33){
-    volIcon.setAttribute("src", "assets/icons/volume.svg") 
+    volIcon.setAttribute("src", "assets/icons/volume.svg")
   } else if (e.target.value > 30 && e.target.value <= 66){
-    volIcon.setAttribute("src", "assets/icons/volume-1.svg") 
+    volIcon.setAttribute("src", "assets/icons/volume-1.svg")
   } else {
-  volIcon.setAttribute("src", "assets/icons/volume-2.svg") 
+  volIcon.setAttribute("src", "assets/icons/volume-2.svg")
   }
   volume.style.setProperty('--value', `${e.target.value}%`);
 }
@@ -102,11 +99,9 @@ volume.addEventListener("input", updateVolume)
 volume.addEventListener("change", updateVolume)
 
 
-const songs = [
-  
-]
+const songs =
 
-// audio manipulation
+// files
 function prevSong(){}
 
 function nextSong(){}

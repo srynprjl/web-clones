@@ -1,11 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Web Clones - srynprjl</title>
-    </head>
-    <body>
-        <h1 style="text-align: center;">Web Clones</h1>
-    </body>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template & Clone Directory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0a0a0a',
+                        darkcard: '#121212',
+                        darkborder: '#222222',
+                        orangygrey: '#a3958d',
+                        orangygreyLight: '#d6c7be',
+                        orangygreyDark: '#6b5e56',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-orangygrey min-h-screen transition-colors duration-300 flex flex-col justify-between selection:bg-orange-500 selection:text-white">
+
+    <header class="max-w-6xl w-full mx-auto px-6 py-8 flex flex-col sm:flex-row justify-between items-center gap-4 border-b border-darkborder">
+        <div>
+            <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                <i data-lucide="code-2" class="w-5 h-5 text-orange-500"></i>
+                sysClone
+            </h1>
+            <p class="text-xs text-orangygreyDark mt-1">A collection of web clones, redesigns, and templates created by srynprjl.</p>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+            <a href="https://github.com/srynprjl" target="_blank" class="px-3 py-1.5 text-xs font-medium rounded-none bg-darkcard text-orangygrey hover:text-white border border-darkborder transition flex items-center gap-1.5">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                GitHub
+            </a>
+            <a href="https://linkedin.com/in/srynprjl" target="_blank" class="px-3 py-1.5 text-xs font-medium rounded-none bg-darkcard text-orangygrey hover:text-white border border-darkborder transition flex items-center gap-1.5">
+                <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
+                LinkedIn
+            </a>
+            <button onclick="toggleDarkMode()" class="p-2 rounded-none bg-darkcard text-orangygrey hover:text-white border border-darkborder transition flex items-center justify-center">
+                <i id="theme-icon" data-lucide="sun" class="w-3.5 h-3.5 dark:hidden"></i>
+                <i id="theme-icon-dark" data-lucide="moon" class="w-3.5 h-3.5 hidden dark:block"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-6xl w-full mx-auto px-6 py-8 flex-grow">
+
+        <div class="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 mb-8">
+            <div class="flex flex-wrap items-center gap-1.5">
+                <button onclick="filterTab('all')" id="tab-all" class="px-3 py-1 text-xs font-medium rounded-none transition bg-darkcard text-white border border-orange-500/40">All</button>
+                <button onclick="filterTab('clone')" id="tab-clone" class="px-3 py-1 text-xs font-medium rounded-none transition bg-darkcard text-orangygrey hover:text-white border border-darkborder">Clones</button>
+                <button onclick="filterTab('redesign')" id="tab-redesign" class="px-3 py-1 text-xs font-medium rounded-none transition bg-darkcard text-orangygrey hover:text-white border border-darkborder">Redesigns</button>
+                <button onclick="filterTab('template')" id="tab-template" class="px-3 py-1 text-xs font-medium rounded-none transition bg-darkcard text-orangygrey hover:text-white border border-darkborder">Templates</button>
+            </div>
+
+            <div class="relative w-full md:w-64">
+                <i data-lucide="search" class="absolute left-3 top-2.5 w-3.5 h-3.5 text-orangygreyDark"></i>
+                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search projects..." class="w-full bg-darkcard border border-darkborder rounded-none pl-9 pr-3 py-1.5 text-xs focus:outline-none focus:border-orange-500 text-white placeholder-orangygreyDark">
+            </div>
+        </div>
+
+        <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+            </div>
+
+        <div id="paginationContainer" class="flex justify-center items-center gap-2 mt-8">
+            </div>
+    </main>
+
+    <div id="projectModal" class="fixed inset-0 bg-black/80 backdrop-blur-xs hidden items-center justify-center p-4 z-50">
+        <div class="bg-darkcard border border-darkborder w-full max-w-lg rounded-none p-6 relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-7 h-7 rounded-none bg-darkbg border border-darkborder flex items-center justify-center text-orangygrey hover:text-white transition">
+                <i data-lucide="x" class="w-3.5 h-3.5"></i>
+            </button>
+            <div id="modalContent">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        const projectsData = [
+            {
+                id: "spotify-clone",
+                name: "Spotify",
+                category: "clone",
+                status: "in progress", // Options: 'done', 'in progress', 'idea'
+                description: "A faithful web-app reproduction of Spotify's desktop interface featuring sidebar navigation, playlist rendering, and responsive playback UI controls.",
+                screenshotUrl: "",
+                originalSiteUrl: "https://open.spotify.com",
+                cloneSiteUrl: "html/spotify/index.html",
+                whatILearned: "Learned how to recreate multi-pane grid layouts, structure complex flexbox navigation sidebars, and simulate sticky bottom audio playback controls using pure CSS.",
+                clones: {
+                    html: {
+                        available: true,
+                        repoUrl: "https://github.com/srynprjl/web-clones/tree/main/html/spotify",
+                        techStack: ["HTML5", "CSS3", "Vanilla JS"]
+                    },
+                    react: {
+                        available: false,
+                        repoUrl: "",
+                        techStack: []
+                    }
+                }
+            }
+        ];
+
+        let currentFilter = 'all';
+        let searchQuery = '';
+        let currentPage = 1;
+        const itemsPerPage = 6;
+
+        const defaultFallbackImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='350' viewBox='0 0 600 350'%3E%3Crect width='600' height='350' fill='%23121212'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b5e56' font-family='sans-serif' font-size='14px'%3ENo Screenshot%3C/text%3E%3C/svg%3E";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderProjects();
+        });
+
+        function getFilteredProjects() {
+            return projectsData.filter(p => {
+                const matchesTab = currentFilter === 'all' || p.category === currentFilter;
+                const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesTab && matchesSearch;
+            });
+        }
+
+        function renderProjects() {
+            const grid = document.getElementById('projectGrid');
+            grid.innerHTML = '';
+
+            const filtered = getFilteredProjects();
+
+            const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+
+            const start = (currentPage - 1) * itemsPerPage;
+            const paginatedItems = filtered.slice(start, start + itemsPerPage);
+
+            if (paginatedItems.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-orangygreyDark text-xs">
+                        No projects found matching your search.
+                    </div>
+                `;
+                renderPagination(0);
+                return;
+            }
+
+            paginatedItems.forEach(project => {
+                const statusStyles = {
+                    'done': 'bg-emerald-950/60 text-emerald-400 border-emerald-900/40',
+                    'in progress': 'bg-amber-950/60 text-amber-400 border-amber-900/40',
+                    'idea': 'bg-darkbg text-orangygreyDark border-darkborder'
+                };
+
+                let buttonsHTML = '';
+                if (project.cloneSiteUrl) {
+                    buttonsHTML += `<a href="${project.cloneSiteUrl}" target="_blank" class="flex-1 text-center py-1.5 px-2.5 bg-darkbg text-white rounded-none text-xs font-medium hover:bg-darkborder border border-darkborder transition flex items-center justify-center gap-1"><i data-lucide="external-link" class="w-3 h-3"></i> Clone</a>`;
+                }
+                if (project.originalSiteUrl && project.originalSiteUrl !== '#') {
+                    buttonsHTML += `<a href="${project.originalSiteUrl}" target="_blank" class="py-1.5 px-2.5 bg-darkbg text-orangygrey rounded-none text-xs font-medium hover:text-white hover:bg-darkborder border border-darkborder transition flex items-center gap-1"><i data-lucide="globe" class="w-3 h-3"></i> Original</a>`;
+                }
+
+                const cardImg = project.screenshotUrl ? project.screenshotUrl : defaultFallbackImage;
+
+                const card = document.createElement('div');
+                card.className = "bg-darkcard border border-darkborder rounded-none overflow-hidden flex flex-col justify-between hover:border-orangygreyDark transition cursor-pointer group";
+                card.onclick = (e) => {
+                    if (e.target.closest('a')) return;
+                    openModal(project.id);
+                };
+
+                card.innerHTML = `
+                    <div>
+                        <div class="w-full h-36 bg-darkbg overflow-hidden relative border-b border-darkborder">
+                            <img src="${cardImg}" alt="${project.name} preview" onerror="this.src='${defaultFallbackImage}'" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-2 left-2">
+                                <span class="text-[10px] px-2 py-0.5 rounded-none bg-darkbg/80 text-orangygrey uppercase tracking-wider font-semibold border border-darkborder">${project.category}</span>
+                            </div>
+                        </div>
+
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-1.5">
+                                <h3 class="text-sm font-bold text-white group-hover:text-orange-400 transition">${project.name}</h3>
+                                <span class="text-[10px] px-2 py-0.5 rounded-none border uppercase tracking-wider font-medium ${statusStyles[project.status] || 'bg-darkbg text-orangygrey'}">${project.status}</span>
+                            </div>
+                            <p class="text-xs text-orangygreyDark line-clamp-2 leading-relaxed">${project.description}</p>
+
+                            ${project.whatILearned ? `
+                                <div class="mt-3 pt-2.5 border-t border-darkborder/60">
+                                    <span class="text-[10px] font-semibold text-orangygreyDark flex items-center gap-1 mb-0.5"><i data-lucide="lightbulb" class="w-3 h-3 text-orange-500"></i> Learned</span>
+                                    <p class="text-[11px] text-orangygrey line-clamp-1 italic">"${project.whatILearned}"</p>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                    <div class="p-4 pt-0 flex items-center gap-2">
+                        ${buttonsHTML}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            renderPagination(totalPages);
+            lucide.createIcons();
+        }
+
+        function renderPagination(totalPages) {
+            const container = document.getElementById('paginationContainer');
+            container.innerHTML = '';
+
+            if (totalPages <= 1) return;
+
+            // Prev button
+            const prevBtn = document.createElement('button');
+            prevBtn.className = `px-3 py-1 text-xs font-medium rounded-none bg-darkcard text-orangygrey border border-darkborder transition ${currentPage === 1 ? 'opacity-40 cursor-not-allowed' : 'hover:bg-darkborder hover:text-white'}`;
+            prevBtn.innerHTML = 'Prev';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderProjects();
+                }
+            };
+            container.appendChild(prevBtn);
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = `px-3 py-1 text-xs font-medium rounded-none border transition ${i === currentPage ? 'bg-orange-500/10 text-orange-400 border-orange-500/40' : 'bg-darkcard text-orangygrey border-darkborder hover:bg-darkborder hover:text-white'}`;
+                pageBtn.innerText = i;
+                pageBtn.onclick = () => {
+                    currentPage = i;
+                    renderProjects();
+                };
+                container.appendChild(pageBtn);
+            }
+
+            // Next button
+            const nextBtn = document.createElement('button');
+            nextBtn.className = `px-3 py-1 text-xs font-medium rounded-none bg-darkcard text-orangygrey border border-darkborder transition ${currentPage === totalPages ? 'opacity-40 cursor-not-allowed' : 'hover:bg-darkborder hover:text-white'}`;
+            nextBtn.innerHTML = 'Next';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderProjects();
+                }
+            };
+            container.appendChild(nextBtn);
+        }
+
+        function filterTab(tab) {
+            currentFilter = tab;
+            currentPage = 1;
+            ['all', 'clone', 'redesign', 'template'].forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === tab) {
+                    btn.className = "px-3 py-1 text-xs font-medium rounded-none transition bg-darkcard text-white border border-orange-500/40";
+                } else {
+                    btn.className = "px-3 py-1 text-xs font-medium rounded-none transition bg-darkcard text-orangygrey hover:text-white border border-darkborder";
+                }
+            });
+            renderProjects();
+        }
+
+        function handleSearch() {
+            searchQuery = document.getElementById('searchInput').value;
+            currentPage = 1;
+            renderProjects();
+        }
+
+        function openModal(projectId) {
+            const project = projectsData.find(p => p.id === projectId);
+            if (!project) return;
+
+            const modalContent = document.getElementById('modalContent');
+
+            let htmlCloneSection = project.clones.html.available ? `
+                <div class="p-3 bg-darkbg rounded-none border border-darkborder">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-bold text-white flex items-center gap-1.5"><i data-lucide="file-code" class="w-3.5 h-3.5 text-orange-500"></i> HTML Clone</span>
+                        <a href="${project.clones.html.repoUrl}" target="_blank" class="text-xs text-orange-400 hover:underline font-medium flex items-center gap-1">GitHub Repo <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                    </div>
+                    <div class="flex flex-wrap gap-1 mt-2">
+                        ${project.clones.html.techStack.map(t => `<span class="text-[10px] bg-darkcard border border-darkborder px-2 py-0.5 rounded-none text-orangygrey">${t}</span>`).join('')}
+                    </div>
+                </div>
+            ` : '';
+
+            let reactCloneSection = project.clones.react.available ? `
+                <div class="p-3 bg-darkbg rounded-none border border-darkborder">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-bold text-white flex items-center gap-1.5"><i data-lucide="atom" class="w-3.5 h-3.5 text-cyan-400"></i> React Clone</span>
+                        <a href="${project.clones.react.repoUrl}" target="_blank" class="text-xs text-orange-400 hover:underline font-medium flex items-center gap-1">GitHub Repo <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                    </div>
+                    <div class="flex flex-wrap gap-1 mt-2">
+                        ${project.clones.react.techStack.map(t => `<span class="text-[10px] bg-darkcard border border-darkborder px-2 py-0.5 rounded-none text-orangygrey">${t}</span>`).join('')}
+                    </div>
+                </div>
+            ` : '';
+
+            modalContent.innerHTML = `
+                <span class="text-[10px] font-semibold uppercase tracking-wider text-orangygreyDark">${project.category} • ${project.status}</span>
+                <h2 class="text-base font-bold text-white mt-0.5">${project.name}</h2>
+                <p class="text-xs text-orangygrey mt-2 leading-relaxed">${project.description}</p>
+
+                ${project.whatILearned ? `
+                    <div class="mt-3 p-3 bg-darkbg border border-darkborder rounded-none">
+                        <h4 class="text-[10px] font-bold uppercase tracking-wider text-orange-400 mb-1 flex items-center gap-1"><i data-lucide="lightbulb" class="w-3 h-3"></i> What I Learned</h4>
+                        <p class="text-xs text-orangygrey leading-relaxed">${project.whatILearned}</p>
+                    </div>
+                ` : ''}
+
+                <div class="mt-4 space-y-2">
+                    <h4 class="text-[10px] font-bold uppercase tracking-wider text-orangygreyDark">Code Implementations</h4>
+                    ${htmlCloneSection}
+                    ${reactCloneSection}
+                    ${!project.clones.html.available && !project.clones.react.available ? '<p class="text-xs text-orangygreyDark italic">No code repositories linked yet.</p>' : ''}
+                </div>
+
+                <div class="mt-5 pt-3 border-t border-darkborder flex gap-2">
+                    ${project.cloneSiteUrl ? `<a href="${project.cloneSiteUrl}" target="_blank" class="flex-1 text-center py-2 px-3 bg-white text-darkbg rounded-none text-xs font-semibold hover:bg-orangygreyLight transition flex items-center justify-center gap-1"><i data-lucide="external-link" class="w-3.5 h-3.5"></i> Launch Clone</a>` : ''}
+                    ${project.originalSiteUrl && project.originalSiteUrl !== '#' ? `<a href="${project.originalSiteUrl}" target="_blank" class="py-2 px-3 bg-darkbg text-orangygrey hover:text-white rounded-none text-xs font-semibold border border-darkborder transition flex items-center gap-1"><i data-lucide="globe" class="w-3.5 h-3.5"></i> Original</a>` : ''}
+                </div>
+            `;
+
+            document.getElementById('projectModal').classList.remove('hidden');
+            document.getElementById('projectModal').classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.remove('flex');
+            document.getElementById('projectModal').classList.add('hidden');
+        }
+
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                document.body.classList.remove('bg-darkbg', 'text-orangygrey');
+                document.body.classList.add('bg-stone-50', 'text-stone-700');
+            } else {
+                html.classList.add('dark');
+                document.body.classList.remove('bg-stone-50', 'text-stone-700');
+                document.body.classList.add('bg-darkbg', 'text-orangygrey');
+            }
+        }
+    </script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
 </html>

@@ -157,7 +157,8 @@ main{
     padding: 0px 16px;
     height: 100%;
     display: grid;
-    grid-template-columns: 20rem auto;
+    grid-template-columns: max-content auto;
+    gap: 10px;
     align-items: stretch;
 }
 
@@ -168,6 +169,7 @@ main{
 
 .sidebar {
     padding: 8px 12px;
+    width: 20rem;
     border-radius: 13px;
     background-color: #121212;
     div{
@@ -360,5 +362,11 @@ main{
     background: #3b82f6;
     cursor: pointer;
 }
+}
 
+section.mainbody{
+    padding: 16px;
+    border-radius: 13px;
+    background-color: #121212;
+    overflow-y: scroll;
 }
