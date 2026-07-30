@@ -73,3 +73,33 @@ playlists.forEach((data) => {
   playlistContainer.innerHTML += html_template
 
 })
+
+let playbar = document.getElementById("bar");
+playbar.addEventListener("input", (e) => {
+  playbar.style.setProperty('--value', `${e.target.value}%`);
+})
+
+
+
+
+let volume = document.getElementById("volume");
+let volIcon = document.getElementById("vol-icon");
+
+function updateVolume(e){
+  if(e.target.value == 0){
+    volIcon.setAttribute("src", "assets/icons/volume-x.svg")
+  } else if (e.target.value > 0 && e.target.value <= 33){
+    volIcon.setAttribute("src", "assets/icons/volume.svg") 
+  } else if (e.target.value > 30 && e.target.value <= 66){
+    volIcon.setAttribute("src", "assets/icons/volume-1.svg") 
+  } else {
+  volIcon.setAttribute("src", "assets/icons/volume-2.svg") 
+  }
+  volume.style.setProperty('--value', `${e.target.value}%`);
+}
+
+volume.addEventListener("input", updateVolume)
+volume.addEventListener("change", updateVolume)
+const songs = []
+
+// audio manipulation

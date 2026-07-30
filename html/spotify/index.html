@@ -51,8 +51,31 @@
                 </div>
             </aside>
         </main>
-        <footer class="playbar">
 
+        <footer class="playbar">
+            <div class="details">
+                <img src="https://i.pinimg.com/736x/66/7a/7f/667a7f247077806fbedd7a22e973f77f.jpg"/>
+                <div class="names">
+                    <div class="title">Song name</div>
+                    <div class="artist">Artist</div>
+                </div>
+                <img class="icon" src="assets/icons/plus-circle.svg" />
+                
+            </div>
+            <div class="play">
+                <div class="play_controls">
+                    <img src="assets/icons/shuffle.svg" />
+                    <img src="assets/icons/skip-back.svg" />
+                    <img src="assets/icons/pause.svg" />
+                    <img src="assets/icons/skip-forward.svg" />
+                    <img src="assets/icons/repeat.svg" />
+                </div>
+                <input class="play-range" id="bar" type="range" min="0" max="100"/>
+            </div>
+            <div class="controls flex" style="gap: 8px;">
+                <img id="vol-icon" src="assets/icons/volume-2.svg" />
+                <input class="volume" id="volume" type="range" min="0" max="100"/>
+            </div>
         </footer>
 
         <script src="assets/script.js"></script>
