@@ -353,3 +353,148 @@ tempSongs.forEach(song => {
   index++;
   songContainer.innerHTML += songsHTMLTemplate
 })
+
+let playOrder = tempSongs
+let playlistPlay = document.getElementById("playlistPlay");
+let mainShuffle = document.getElementById("playlistShuffle");
+let playlistShuffle = document.getElementById("playShuffle");
+let pauseBtn = document.getElementById("playPause")
+let nextBtn = document.getElementById("playNext")
+let prevBtn = document.getElementById("playPrev");
+let repeatBtn = document.getElementById("playRepeat");
+let playBar = document.getElementById("playbar")
+let shuffle = localStorage.getItem("shuffle") || true;
+let repeatState = localStorage.getItem("repeatState") || 1;
+let playOrderIndex = localStorage.getItem("audioindex") || 0;
+let audioToBePlayed = `assets/songs/${playOrder[playOrderIndex].local_path}`
+let audioTimestamp = localStorage.getItem("lastAudioTime") || 0;
+let audioElement = new Audio(audioToBePlayed)
+audioElement.currentTime = audioTimestamp
+
+function shuffleSongs(array) {
+  let currentIndex = array.length;
+  while (currentIndex != 0) {
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+}
+
+function getPlaylistSongs(shuffle){
+    let tempSong = tempSongs
+    if(shuffle){
+        playOrder = shuffleSongs(tempSong)
+    } else {
+        playOrder = tempSongs
+    }
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    if(localStorage.getItem("audioindex") !== null){
+        console.log("Hi")
+        let playOrderIndex = localStorage.getItem("audioindex")
+        let xVal = localStorage.getItem("playVal") || 0
+        playBar.style.setProperty('--value', `${xVal}%`);
+        changePlayBarDetails()
+        // let playOrder = getPlaylistSongs(shuffle)
+    }
+    if(localStorage.getItem("lastPlayState") == 1){
+        audioElement.play()
+    } else {
+        audioElement.pause()
+    }
+})
+
+
+pauseBtn.addEventListener("click", playPauseSong)
+playlistPlay.addEventListener("click", playPauseSong)
+audioElement.addEventListener("timeupdate", updatePlaybar)
+nextBtn.addEventListener("click", nextSong)
+prevBtn.addEventListener("click", prevSongs)
+
+audioElement.addEventListener("ended", ()=>{
+    setTimeout(100)
+    nextSong();
+})
+
+function updatePlaybar(){
+    let val = (audioElement.currentTime / audioElement.duration)*100
+    localStorage.setItem("playVal", val) 
+    localStorage.setItem("lastAudioTime", audioElement.currentTime) 
+    playBar.value = val
+    playBar.style.setProperty('--value', `${playBar.value}%`);
+}
+
+playBar.addEventListener("input", () => {
+      audioElement.currentTime = playBar.value * audioElement.duration / 100;
+      localStorage.setItem("lastAudioTime", audioElement.currentTime) 
+      playBar.style.setProperty('--value', `${playBar.value}%`);
+})
+
+
+
+function playPauseSong(){
+    if(audioElement.paused){
+        pauseBtn.src = "assets/icons/pause.svg"
+        playlistPlay.childNodes[0].src = "assets/icons/pause.svg"
+        audioElement.play()
+        localStorage.setItem("lastPlayState", 1);
+    } else {
+        pauseBtn.src = "assets/icons/play.svg"
+        playlistPlay.childNodes[0].src = "assets/icons/play.svg"
+        audioElement.pause()
+        localStorage.setItem("lastPlayState", 0);
+    }
+    changePlayBarDetails()
+}
+
+function nextSong(){
+    if(playOrderIndex < playOrder.length){
+        playOrderIndex++;
+        audioElement.src = `assets/songs/${playOrder[playOrderIndex].local_path}`
+        localStorage.setItem("audioindex", playOrderIndex) 
+        audioElement.currentTime = 0;
+        playBar.style.setProperty('--value', `0%`);  
+        audioElement.play()
+        changePlayBarDetails()
+    }  else {
+        if(repeatState == 1){
+            playOrderIndex = 0;
+            audioElement.play();
+        } else {
+            audioElement.currentTime = audioElement.duration
+            alert("Playlist completed")
+        }
+    }
+}
+
+function prevSongs(){
+    if(playOrderIndex > 0){
+        playOrderIndex--;
+        audioElement.src = `assets/songs/${playOrder[playOrderIndex].local_path}`
+        localStorage.setItem("audioindex", playOrderIndex) 
+        audioElement.currentTime = 0;
+        playBar.style.setProperty('--value', `0%`);  
+        audioElement.play()
+        changePlayBarDetails()
+    }  else {
+        if(repeatState == 1){
+            playOrderIndex = playOrder.length -1;
+            audioElement.play()
+        } else {
+            audioElement.currentTime = 0;
+            audioElement.play();
+        }
+    }
+}
+
+const changePlayBarDetails = () => {
+    let title = document.getElementById("playbar-title")
+    let img = document.getElementById("playbar-img")
+    let artist = document.getElementById("playbar-artist")
+
+    title.innerText = playOrder[playOrderIndex].title
+    artist.innerText = playOrder[playOrderIndex].artist
+    img.src = playOrder[playOrderIndex].thumbnail
+}

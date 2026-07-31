@@ -16,11 +16,6 @@ let playlistHeader = document.getElementById("playlist-header-item");
 
 
 
-let playbar = document.getElementById("bar");
-playbar.addEventListener("input", (e) => {
-  playbar.style.setProperty('--value', `${e.target.value}%`);
-})
-
 
 let volume = document.getElementById("volume");
 let volIcon = document.getElementById("vol-icon");
@@ -43,17 +38,3 @@ volume.addEventListener("change", updateVolume)
 
 
 
-// let audioElement = new Audio(`assets/songs/${tempSongs[0].local_path}`)
-
-// files
-function prevSong(){}
-
-function nextSong(){}
-
-function playPause(id) {
-  // audioElement.play()
-}
-
-function repeat(){}
-
-function shuffle(){}

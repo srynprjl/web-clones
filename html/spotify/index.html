@@ -76,8 +76,8 @@
                 <hr style="margin: 20px; border-color: #1f1f1f;"/>
                 <div class="playlist-controls">
                     <div class="left">
-                        <button class="play-btn"><img src="assets/icons/play.svg" /></button>
-                        <button class="shuffle-btn"><img src="assets/icons/shuffle.svg"/></button>
+                        <button id="playlistPlay" class="play-btn"><img src="assets/icons/play.svg" /></button>
+                        <button id="playlistShuffle" class="shuffle-btn"><img src="assets/icons/shuffle.svg"/></button>
                         <button class="download-btn"><img src="assets/icons/install.svg"/></button>
                     </div>
                 </div>
@@ -96,23 +96,23 @@
 
         <footer class="playbar">
             <div class="details">
-                <img src="https://i.pinimg.com/736x/66/7a/7f/667a7f247077806fbedd7a22e973f77f.jpg"/>
+                <img id="playbar-img" src="https://i.pinimg.com/736x/66/7a/7f/667a7f247077806fbedd7a22e973f77f.jpg"/>
                 <div class="names">
-                    <div class="title">Song name</div>
-                    <div class="artist">Artist</div>
+                    <div class="title" id="playbar-title">Song name</div>
+                    <div class="artist" id="playbar-artist">Artist</div>
                 </div>
                 <img class="icon" src="assets/icons/plus-circle.svg" />
 
             </div>
             <div class="play">
                 <div class="play_controls">
-                    <img src="assets/icons/shuffle.svg" />
-                    <img src="assets/icons/skip-back.svg" />
-                    <img src="assets/icons/pause.svg"/>
-                    <img src="assets/icons/skip-forward.svg" />
-                    <img src="assets/icons/repeat.svg" />
+                    <img id="playShuffle" src="assets/icons/shuffle.svg" />
+                    <img id="playPrev" src="assets/icons/skip-back.svg" />
+                    <img id="playPause" src="assets/icons/play.svg"/>
+                    <img id="playNext" src="assets/icons/skip-forward.svg" />
+                    <img id="playRepeat" src="assets/icons/repeat.svg" />
                 </div>
-                <input class="play-range" id="bar" type="range" min="0" max="100"/>
+                <input class="play-range" id="playbar" type="range" min="0" max="100"/>
             </div>
             <div class="controls flex" style="gap: 8px;">
                 <img id="vol-icon" src="assets/icons/volume-2.svg" />
@@ -122,5 +122,6 @@
 
         <script  src="assets/js/script.js"></script>
         <script  src="assets/js/playlist.js"></script>
+        <script  src="assets/js/songs.js"></script>
     </body>
 </html>
