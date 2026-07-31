@@ -37,7 +37,6 @@ if source_type == "yt_link":
     print("Extracting metadata from the YouTube link (this may take a moment)...")
 
     extract_opts = {
-        'extract_flat': True,
         'quiet': True,
     }
 
