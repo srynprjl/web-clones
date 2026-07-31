@@ -277,7 +277,7 @@ main{
     background-color: black;
     height: 100%;
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 20% 60% auto;
     align-items: center;
     justify-content: space-between;
     padding: 0px 24px;

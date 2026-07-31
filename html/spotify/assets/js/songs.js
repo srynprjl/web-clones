@@ -371,24 +371,35 @@ let audioTimestamp = localStorage.getItem("lastAudioTime") || 0;
 let audioElement = new Audio(audioToBePlayed)
 audioElement.currentTime = audioTimestamp
 
-function shuffleSongs(array) {
-  let currentIndex = array.length;
-  while (currentIndex != 0) {
-    let randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
-  }
-}
-
-function getPlaylistSongs(shuffle){
-    let tempSong = tempSongs
-    if(shuffle){
-        playOrder = shuffleSongs(tempSong)
-    } else {
-        playOrder = tempSongs
+songContainer.addEventListener("click", (e) => {
+    const cont = e.target.closest(".song-container")
+    if(cont){
+        playOrderIndex = playOrder.findIndex(item => item.id === cont.id);
+        localStorage.setItem("audioindex", playOrderIndex) 
+        audioElement.src = `assets/songs/${playOrder[playOrderIndex].local_path}`
+        changePlayBarDetails();
+        updatePlayIcon();
+        audioElement.play();
     }
-}
+})
+// function shuffleSongs(array) {
+//   let currentIndex = array.length;
+//   while (currentIndex != 0) {
+//     let randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex--;
+//     [array[currentIndex], array[randomIndex]] = [
+//       array[randomIndex], array[currentIndex]];
+//   }
+// }
+
+// function getPlaylistSongs(shuffle){
+//     let tempSong = tempSongs
+//     if(shuffle){
+//         playOrder = shuffleSongs(tempSong)
+//     } else {
+//         playOrder = tempSongs
+//     }
+// }
 
 document.addEventListener("DOMContentLoaded", ()=>{
     if(localStorage.getItem("audioindex") !== null){
@@ -399,11 +410,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
         changePlayBarDetails()
         // let playOrder = getPlaylistSongs(shuffle)
     }
-    if(localStorage.getItem("lastPlayState") == 1){
-        audioElement.play()
-    } else {
-        audioElement.pause()
-    }
+    // if(localStorage.getItem("lastPlayState") == 1){
+    //     audioElement.play()
+    // } else {
+    //     audioElement.pause()
+    // }
 })
 
 
@@ -417,6 +428,8 @@ audioElement.addEventListener("ended", ()=>{
     setTimeout(100)
     nextSong();
 })
+
+
 
 function updatePlaybar(){
     let val = (audioElement.currentTime / audioElement.duration)*100
@@ -432,19 +445,22 @@ playBar.addEventListener("input", () => {
       playBar.style.setProperty('--value', `${playBar.value}%`);
 })
 
-
-
-function playPauseSong(){
+function updatePlayIcon(){
     if(audioElement.paused){
         pauseBtn.src = "assets/icons/pause.svg"
         playlistPlay.childNodes[0].src = "assets/icons/pause.svg"
-        audioElement.play()
-        localStorage.setItem("lastPlayState", 1);
     } else {
         pauseBtn.src = "assets/icons/play.svg"
         playlistPlay.childNodes[0].src = "assets/icons/play.svg"
+    }
+}
+
+function playPauseSong(){
+    updatePlayIcon()
+    if(audioElement.paused){
+        audioElement.play()
+    } else {
         audioElement.pause()
-        localStorage.setItem("lastPlayState", 0);
     }
     changePlayBarDetails()
 }
