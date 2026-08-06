@@ -47,7 +47,7 @@
 
 <div align="center">
 
-[**View Live Preview**](#)
+[**View Live Preview**](https://srynprjl.github.io/web-clones/html/spotify)
 
 </div>
 
@@ -98,9 +98,11 @@ spotify/
 ├── index.html
 ├── assets/
 │   ├── images/
-│   └── icons/
-│   └── style.css
-│   └── script.js
+│   ├── icons/
+│   ├── css
+│   │   └── styles.css
+│   └── js
+│   │   └── script.js
 └── README.md
 ```
 
@@ -113,6 +115,8 @@ spotify/
 ## Run It Locally
 
 Simply open `index.html` directly in your browser.
+or
+Use "Live Server" to open it in server
 
 <br>
 
@@ -122,8 +126,12 @@ Simply open `index.html` directly in your browser.
 
 ## Notes
 
-- Anything tricky about the layout, animations, or responsiveness worth mentioning goes here.
-- List any known differences from the original or parts left incomplete.
+- Pages left includes login, mainpage, settings, search, notifications
+- Responsive web design left to do
+- Improve playlist page + dynamic playlist change 
+- Indicate which song is playing.
+- Volume slider is broken
+- Playlist page still needs work to do :(
 
 <br>
 
