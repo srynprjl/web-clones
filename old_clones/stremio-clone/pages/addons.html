@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addons</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/media-query.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+
+        * {
+            margin: 0 5px;
+        }
+        .selectbar {
+            justify-content: space-between;
+        }
+
+        .selectbar-left select {
+            width: 200px;
+            text-align: left;
+        }
+
+        .bg {
+            background: linear-gradient(41deg, #110f21 0%, #19163b 100%);
+        }
+
+        .btn {
+            padding: 0.25rem 1.25rem;
+            font-size: 16px;
+            text-transform: none;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="selectbar flex-container bg">
+        <div class="selectbar-left">
+            <select>
+                <option>Official Addons</option>
+                <option>Community Addons</option>
+                <option selected>Installed</option>
+            </select>
+            <select>
+                <option selected>All</option>
+                <option>Movies</option>
+                <option>Series</option>
+                <option>Channel</option>
+                <option>Others</option>
+            </select>
+        </div>
+
+
+        <div class="selectbar-right">
+            <button class="btn">+ Add Addon</button>
+            <div class="search " style="display: inline-flex;">
+                <input type="search" class="addonsbar searchbar" placeholder="Search addons" />
+                <button class="searchbtn addonsbtn">
+                    <span class="material-symbols-outlined" style="color: white;">
+                        search
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-container flex-addons">
+
+        <div class="addons-items">
+            <div class="addons-left">
+                <div class="svg">
+                    <svg class="plugin-icon" viewBox="0 0 512 512">
+                        <path
+                            d="M345.0999999999999 480H274c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-27.7c0.03-4.26-0.82-8.48-2.5-12.4a32.303 32.303 0 0 0-7.2-10.4c-7.8-7.6-19.1-11.8-30.9-11.5-21.4 0.5-39.4 19.3-39.4 41.1v20.9c0.01 2.36-0.45 4.71-1.36 6.89-0.91 2.18-2.25 4.16-3.94 5.81a18.025 18.025 0 0 1-12.7 5.3h-70.4a55.666 55.666 0 0 1-39.36-16.26 55.637 55.637 0 0 1-16.34-39.34v-70.4a18.11 18.11 0 0 1 5.3-12.7 18.11 18.11 0 0 1 12.7-5.3h27.7c9.2 0 18.1-3.9 25.1-11 3.9-3.92 7-8.58 9.1-13.7a40.7 40.7 0 0 0 3.1-16.2c-0.3-21.2-17.7-39.1-38.1-39.1H50c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-70.4a55.782 55.782 0 0 1 4.2-21.3 53.887 53.887 0 0 1 12.1-18 55.709 55.709 0 0 1 39.3-16.3h55.2a8.08 8.08 0 0 0 5.7-2.3c0.74-0.75 1.33-1.64 1.72-2.62 0.4-0.98 0.6-2.02 0.58-3.08v-6.5a64.686 64.686 0 0 1 5.1-25.3 66.567 66.567 0 0 1 14.5-21.4 65.24 65.24 0 0 1 21.7-14.1c8.08-3.2 16.71-4.8 25.4-4.7 35.5 0.6 64.4 30.4 64.4 66.3v5.7a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h55.2c7.21-0.01 14.35 1.42 21 4.2a54.988 54.988 0 0 1 29.7 29.7 54.258 54.258 0 0 1 4.2 21v55.2a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h5.7c36.6 0 66.3 29 66.3 64.6 0 36.6-29.4 66.4-65.5 66.4h-6.5c-2.13-0.01-4.17 0.82-5.7 2.3-0.74 0.75-1.33 1.64-1.72 2.62-0.4 0.98-0.6 2.03-0.58 3.08v56c0.01 7.21-1.42 14.35-4.2 21a54.988 54.988 0 0 1-29.7 29.7 53.894 53.894 0 0 1-21 4.2Z"
+                            style="fill: white;">
+                        </path>
+                    </svg>
+                </div>
+    
+                <div class="flex-container addons-text">
+                    <p class="addons-name">Cinemeta <span class="addons-version">v.3.0.10</span></p>
+                    <p class="addons-category">Movies & Series</p>
+                    <p class="addons-description">The official addon for movie and series catalog</p>
+                </div>
+            </div>
+
+            <div class="addons-buttons flex-container">
+                <button class="adn-uninstall">Uninstall</button>
+                <span class="share-adn"><span class="text">Share addon</span></span>
+            </div>
+
+        </div>
+ 
+        <div class="addons-items">
+            <div class="addons-left">
+                <div class="svg">
+                    <svg class="plugin-icon" viewBox="0 0 512 512">
+                        <path
+                            d="M345.0999999999999 480H274c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-27.7c0.03-4.26-0.82-8.48-2.5-12.4a32.303 32.303 0 0 0-7.2-10.4c-7.8-7.6-19.1-11.8-30.9-11.5-21.4 0.5-39.4 19.3-39.4 41.1v20.9c0.01 2.36-0.45 4.71-1.36 6.89-0.91 2.18-2.25 4.16-3.94 5.81a18.025 18.025 0 0 1-12.7 5.3h-70.4a55.666 55.666 0 0 1-39.36-16.26 55.637 55.637 0 0 1-16.34-39.34v-70.4a18.11 18.11 0 0 1 5.3-12.7 18.11 18.11 0 0 1 12.7-5.3h27.7c9.2 0 18.1-3.9 25.1-11 3.9-3.92 7-8.58 9.1-13.7a40.7 40.7 0 0 0 3.1-16.2c-0.3-21.2-17.7-39.1-38.1-39.1H50c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-70.4a55.782 55.782 0 0 1 4.2-21.3 53.887 53.887 0 0 1 12.1-18 55.709 55.709 0 0 1 39.3-16.3h55.2a8.08 8.08 0 0 0 5.7-2.3c0.74-0.75 1.33-1.64 1.72-2.62 0.4-0.98 0.6-2.02 0.58-3.08v-6.5a64.686 64.686 0 0 1 5.1-25.3 66.567 66.567 0 0 1 14.5-21.4 65.24 65.24 0 0 1 21.7-14.1c8.08-3.2 16.71-4.8 25.4-4.7 35.5 0.6 64.4 30.4 64.4 66.3v5.7a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h55.2c7.21-0.01 14.35 1.42 21 4.2a54.988 54.988 0 0 1 29.7 29.7 54.258 54.258 0 0 1 4.2 21v55.2a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h5.7c36.6 0 66.3 29 66.3 64.6 0 36.6-29.4 66.4-65.5 66.4h-6.5c-2.13-0.01-4.17 0.82-5.7 2.3-0.74 0.75-1.33 1.64-1.72 2.62-0.4 0.98-0.6 2.03-0.58 3.08v56c0.01 7.21-1.42 14.35-4.2 21a54.988 54.988 0 0 1-29.7 29.7 53.894 53.894 0 0 1-21 4.2Z"
+                            style="fill: white;">
+                        </path>
+                    </svg>
+                </div>
+    
+                <div class="flex-container addons-text">
+                    <p class="addons-name">YouTube <span class="addons-version">v.1.30.7</span></p>
+                    <p class="addons-category">Channel</p>
+                    <p class="addons-description">Watch your favourite YouTube channels ad-free and get notified when they upload new videos.</p>
+                </div>
+            </div>
+
+            <div class="addons-buttons flex-container">
+                <button class="adn-uninstall">Uninstall</button>
+                <span class="share-adn"><span class="text">Share addon</span></span>
+            </div>
+
+        </div>
+
+        <div class="addons-items">
+            <div class="addons-left">
+                <div class="svg">
+                    <svg class="plugin-icon" viewBox="0 0 512 512">
+                        <path
+                            d="M345.0999999999999 480H274c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-27.7c0.03-4.26-0.82-8.48-2.5-12.4a32.303 32.303 0 0 0-7.2-10.4c-7.8-7.6-19.1-11.8-30.9-11.5-21.4 0.5-39.4 19.3-39.4 41.1v20.9c0.01 2.36-0.45 4.71-1.36 6.89-0.91 2.18-2.25 4.16-3.94 5.81a18.025 18.025 0 0 1-12.7 5.3h-70.4a55.666 55.666 0 0 1-39.36-16.26 55.637 55.637 0 0 1-16.34-39.34v-70.4a18.11 18.11 0 0 1 5.3-12.7 18.11 18.11 0 0 1 12.7-5.3h27.7c9.2 0 18.1-3.9 25.1-11 3.9-3.92 7-8.58 9.1-13.7a40.7 40.7 0 0 0 3.1-16.2c-0.3-21.2-17.7-39.1-38.1-39.1H50c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-70.4a55.782 55.782 0 0 1 4.2-21.3 53.887 53.887 0 0 1 12.1-18 55.709 55.709 0 0 1 39.3-16.3h55.2a8.08 8.08 0 0 0 5.7-2.3c0.74-0.75 1.33-1.64 1.72-2.62 0.4-0.98 0.6-2.02 0.58-3.08v-6.5a64.686 64.686 0 0 1 5.1-25.3 66.567 66.567 0 0 1 14.5-21.4 65.24 65.24 0 0 1 21.7-14.1c8.08-3.2 16.71-4.8 25.4-4.7 35.5 0.6 64.4 30.4 64.4 66.3v5.7a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h55.2c7.21-0.01 14.35 1.42 21 4.2a54.988 54.988 0 0 1 29.7 29.7 54.258 54.258 0 0 1 4.2 21v55.2a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h5.7c36.6 0 66.3 29 66.3 64.6 0 36.6-29.4 66.4-65.5 66.4h-6.5c-2.13-0.01-4.17 0.82-5.7 2.3-0.74 0.75-1.33 1.64-1.72 2.62-0.4 0.98-0.6 2.03-0.58 3.08v56c0.01 7.21-1.42 14.35-4.2 21a54.988 54.988 0 0 1-29.7 29.7 53.894 53.894 0 0 1-21 4.2Z"
+                            style="fill: white;">
+                        </path>
+                    </svg>
+                </div>
+    
+                <div class="flex-container addons-text">
+                    <p class="addons-name">WatchHub <span class="addons-version">v.1.15.0</span></p>
+                    <p class="addons-category">Movies & Series</p>
+                    <p class="addons-description">Find where to stream your favorite movies and shows amongst Netflix, iTunes, Hulu, Amazon, HBO GO and many others. Supports many countries.</p>
+                </div>
+            </div>
+
+            <div class="addons-buttons flex-container">
+                <button class="adn-uninstall">Uninstall</button>
+                <span class="share-adn"><span class="text">Share addon</span></span>
+            </div>
+
+        </div>
+
+        <div class="addons-items">
+            <div class="addons-left">
+                <div class="svg">
+                    <svg class="plugin-icon" viewBox="0 0 512 512">
+                        <path
+                            d="M345.0999999999999 480H274c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-27.7c0.03-4.26-0.82-8.48-2.5-12.4a32.303 32.303 0 0 0-7.2-10.4c-7.8-7.6-19.1-11.8-30.9-11.5-21.4 0.5-39.4 19.3-39.4 41.1v20.9c0.01 2.36-0.45 4.71-1.36 6.89-0.91 2.18-2.25 4.16-3.94 5.81a18.025 18.025 0 0 1-12.7 5.3h-70.4a55.666 55.666 0 0 1-39.36-16.26 55.637 55.637 0 0 1-16.34-39.34v-70.4a18.11 18.11 0 0 1 5.3-12.7 18.11 18.11 0 0 1 12.7-5.3h27.7c9.2 0 18.1-3.9 25.1-11 3.9-3.92 7-8.58 9.1-13.7a40.7 40.7 0 0 0 3.1-16.2c-0.3-21.2-17.7-39.1-38.1-39.1H50c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-70.4a55.782 55.782 0 0 1 4.2-21.3 53.887 53.887 0 0 1 12.1-18 55.709 55.709 0 0 1 39.3-16.3h55.2a8.08 8.08 0 0 0 5.7-2.3c0.74-0.75 1.33-1.64 1.72-2.62 0.4-0.98 0.6-2.02 0.58-3.08v-6.5a64.686 64.686 0 0 1 5.1-25.3 66.567 66.567 0 0 1 14.5-21.4 65.24 65.24 0 0 1 21.7-14.1c8.08-3.2 16.71-4.8 25.4-4.7 35.5 0.6 64.4 30.4 64.4 66.3v5.7a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h55.2c7.21-0.01 14.35 1.42 21 4.2a54.988 54.988 0 0 1 29.7 29.7 54.258 54.258 0 0 1 4.2 21v55.2a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h5.7c36.6 0 66.3 29 66.3 64.6 0 36.6-29.4 66.4-65.5 66.4h-6.5c-2.13-0.01-4.17 0.82-5.7 2.3-0.74 0.75-1.33 1.64-1.72 2.62-0.4 0.98-0.6 2.03-0.58 3.08v56c0.01 7.21-1.42 14.35-4.2 21a54.988 54.988 0 0 1-29.7 29.7 53.894 53.894 0 0 1-21 4.2Z"
+                            style="fill: white;">
+                        </path>
+                    </svg>
+                </div>
+    
+                <div class="flex-container addons-text">
+                    <p class="addons-name">Public Domain Movies <span class="addons-version">v.1.0.0</span></p>
+                    <p class="addons-category">Movie</p>
+                    <p class="addons-description">Torrents for public domain movies. Include a collection of more than 500 public domain movies. </p>
+                </div>
+            </div>
+
+            <div class="addons-buttons flex-container">
+                <button class="adn-uninstall">Uninstall</button>
+                <span class="share-adn"><span class="text">Share addon</span></span>
+            </div>
+
+        </div>
+
+        <div class="addons-items">
+            <div class="addons-left">
+                <div class="svg">
+                    <svg class="plugin-icon" viewBox="0 0 512 512">
+                        <path
+                            d="M345.0999999999999 480H274c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-27.7c0.03-4.26-0.82-8.48-2.5-12.4a32.303 32.303 0 0 0-7.2-10.4c-7.8-7.6-19.1-11.8-30.9-11.5-21.4 0.5-39.4 19.3-39.4 41.1v20.9c0.01 2.36-0.45 4.71-1.36 6.89-0.91 2.18-2.25 4.16-3.94 5.81a18.025 18.025 0 0 1-12.7 5.3h-70.4a55.666 55.666 0 0 1-39.36-16.26 55.637 55.637 0 0 1-16.34-39.34v-70.4a18.11 18.11 0 0 1 5.3-12.7 18.11 18.11 0 0 1 12.7-5.3h27.7c9.2 0 18.1-3.9 25.1-11 3.9-3.92 7-8.58 9.1-13.7a40.7 40.7 0 0 0 3.1-16.2c-0.3-21.2-17.7-39.1-38.1-39.1H50c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-70.4a55.782 55.782 0 0 1 4.2-21.3 53.887 53.887 0 0 1 12.1-18 55.709 55.709 0 0 1 39.3-16.3h55.2a8.08 8.08 0 0 0 5.7-2.3c0.74-0.75 1.33-1.64 1.72-2.62 0.4-0.98 0.6-2.02 0.58-3.08v-6.5a64.686 64.686 0 0 1 5.1-25.3 66.567 66.567 0 0 1 14.5-21.4 65.24 65.24 0 0 1 21.7-14.1c8.08-3.2 16.71-4.8 25.4-4.7 35.5 0.6 64.4 30.4 64.4 66.3v5.7a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h55.2c7.21-0.01 14.35 1.42 21 4.2a54.988 54.988 0 0 1 29.7 29.7 54.258 54.258 0 0 1 4.2 21v55.2a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h5.7c36.6 0 66.3 29 66.3 64.6 0 36.6-29.4 66.4-65.5 66.4h-6.5c-2.13-0.01-4.17 0.82-5.7 2.3-0.74 0.75-1.33 1.64-1.72 2.62-0.4 0.98-0.6 2.03-0.58 3.08v56c0.01 7.21-1.42 14.35-4.2 21a54.988 54.988 0 0 1-29.7 29.7 53.894 53.894 0 0 1-21 4.2Z"
+                            style="fill: white;">
+                        </path>
+                    </svg>
+                </div>
+    
+                <div class="flex-container addons-text">
+                    <p class="addons-name">OpenSubtitles v3<span class="addons-version">v.1.0.0</span></p>
+                    <p class="addons-category">Movies and Series</p>
+                    <p class="addons-description"></p>
+                </div>
+            </div>
+
+            <div class="addons-buttons flex-container">
+                <button class="adn-uninstall">Uninstall</button>
+                <span class="share-adn"><span class="text">Share addon</span></span>
+            </div>
+        </div>
+
+        <div class="addons-items">
+            <div class="addons-left">
+                <div class="svg">
+                    <svg class="plugin-icon" viewBox="0 0 512 512">
+                        <path
+                            d="M345.0999999999999 480H274c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-27.7c0.03-4.26-0.82-8.48-2.5-12.4a32.303 32.303 0 0 0-7.2-10.4c-7.8-7.6-19.1-11.8-30.9-11.5-21.4 0.5-39.4 19.3-39.4 41.1v20.9c0.01 2.36-0.45 4.71-1.36 6.89-0.91 2.18-2.25 4.16-3.94 5.81a18.025 18.025 0 0 1-12.7 5.3h-70.4a55.666 55.666 0 0 1-39.36-16.26 55.637 55.637 0 0 1-16.34-39.34v-70.4a18.11 18.11 0 0 1 5.3-12.7 18.11 18.11 0 0 1 12.7-5.3h27.7c9.2 0 18.1-3.9 25.1-11 3.9-3.92 7-8.58 9.1-13.7a40.7 40.7 0 0 0 3.1-16.2c-0.3-21.2-17.7-39.1-38.1-39.1H50c-2.36 0.01-4.71-0.45-6.89-1.36-2.18-0.91-4.16-2.25-5.81-3.94a18.007 18.007 0 0 1-5.3-12.7v-70.4a55.782 55.782 0 0 1 4.2-21.3 53.887 53.887 0 0 1 12.1-18 55.709 55.709 0 0 1 39.3-16.3h55.2a8.08 8.08 0 0 0 5.7-2.3c0.74-0.75 1.33-1.64 1.72-2.62 0.4-0.98 0.6-2.02 0.58-3.08v-6.5a64.686 64.686 0 0 1 5.1-25.3 66.567 66.567 0 0 1 14.5-21.4 65.24 65.24 0 0 1 21.7-14.1c8.08-3.2 16.71-4.8 25.4-4.7 35.5 0.6 64.4 30.4 64.4 66.3v5.7a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h55.2c7.21-0.01 14.35 1.42 21 4.2a54.988 54.988 0 0 1 29.7 29.7 54.258 54.258 0 0 1 4.2 21v55.2a7.842 7.842 0 0 0 4.92 7.43c0.98 0.39 2.03 0.59 3.08 0.57h5.7c36.6 0 66.3 29 66.3 64.6 0 36.6-29.4 66.4-65.5 66.4h-6.5c-2.13-0.01-4.17 0.82-5.7 2.3-0.74 0.75-1.33 1.64-1.72 2.62-0.4 0.98-0.6 2.03-0.58 3.08v56c0.01 7.21-1.42 14.35-4.2 21a54.988 54.988 0 0 1-29.7 29.7 53.894 53.894 0 0 1-21 4.2Z"
+                            style="fill: white;">
+                        </path>
+                    </svg>
+                </div>
+
+                <div class="flex-container addons-text">
+                    <p class="addons-name">Local Files (without catalog support) 
+                    <span class="addons-version">v.1.10.0</span></p>
+                    <p class="addons-category">Mvie, </p>
+                    <p class="addons-description">Local add-on to find playable files: .torrent, .mp4, .mkv and .avi</p>
+                </div>
+            </div>
+
+            <div class="addons-buttons flex-container">
+                <button class="adn-uninstall">Uninstall</button>
+                <span class="share-adn"><span class="text">Share addon</span></span>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

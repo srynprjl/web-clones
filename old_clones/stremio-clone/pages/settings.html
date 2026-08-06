@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/media-query.css">
+    <style>
+        section {
+            margin: 16px;
+            border-bottom: 1px solid #1e1c2e;
+            padding: 16px;
+        }
+
+        .end{
+            border-bottom: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section id="general">
+        <div class="section-heading">General</div>
+        <section>
+            <div class="settings-upper">
+                <div class="pfp">
+                    <img src="../img/anonymous.png" alt="Profile Picture" id="profilepic" />
+                    <span id="username">Anonymous User</span>
+                </div>
+                <div class="login-btn">
+                    <button class="lgn-btn">Login / Sign up</button>
+                </div>
+
+            </div>
+        </section>
+        <div class="settings-lower">
+            <section>
+                <ul>
+                    <li>
+                        <a href="#">Export user data</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact support</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/shreyanparajuli/college-project-stremio" target="_parent">Source
+                            code</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms of Service</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                </ul>
+                <div class="flex-container trakt">
+                    <div class="trakt-logo flex-container">
+                        <svg class="trakt-icon" viewBox="0 0 512 512"><path d="M114.80000000000018 386.4a192.611 192.611 0 0 0 103.68 58.236A192.632 192.632 0 0 0 336.5999999999999 430.9l-133.3-133-88.5 88.5Z" style="fill: currentcolor;"></path><path d="M202.5999999999999 217.4l-101 100.7-13.5-13.5 106.3-106.3 124.1-124.1a192.386 192.386 0 0 0-120.28-1.239 192.399 192.399 0 0 0-97.5 70.438 192.331 192.331 0 0 0-36.61 114.576A192.334 192.334 0 0 0 102.69999999999982 371.9l100.7-100.7 6.9 6.6L354.5 422a57.527 57.527 0 0 0 8.2-5.3l-159.4-159.4-96.7 96.7-13.5-13.5 110.2-110.2 6.9 6.6 168.3 168c2.6-2 4.9-4.3 7.3-6.3l-181.5-181.5-1.7 0.3Z" style="fill: currentcolor;"></path><path d="M399.3000000000002 385.1a192.118 192.118 0 0 0 42.69-78.033 192.097 192.097 0 0 0 2.98-88.898 192.23 192.23 0 0 0-37.36-80.72A192.195 192.195 0 0 0 337.9000000000001 82.2L216.80000000000018 203l182.5 182.1Zm-136-147.2l-13.5-13.5 95.4-95.4 13.5 13.5-95.4 95.4Zm90.5-131l-109.9 109.9-13.5-13.5 109.9-109.9 13.5 13.5Z" style="fill: currentcolor;"></path></svg>
+                        <span class="trakt-text">Trakt Scrobbling</span>
+                    </div>
+                    <div class="authenticate">
+                        <button class="lgn-btn ath-btn" disabled>Authenticate</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="end">
+            <div class="ui-lang flex-container">
+                <div class="ui-text">UI Language</div>
+                <div class="ui-select">
+                    <select class="selectbtn">
+                        <option>English</option>
+                        <option>Nepali</option>
+                        <option>Hindi</option>
+                        <option>Spanish</option>
+                        <option>Bengali</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>
